@@ -44,5 +44,12 @@ const generateField = (field: FieldItem) => {
 };
 
 const generateEnum = (item: EnumItem) => {
-  return `\t${item.name},`;
+  const cleanDescription = item.description.replaceAll("\n", "").trim();
+  const doc = ["\t/**", `\t * ${cleanDescription}`];
+  if (item.deprecated) doc.push("\t * @deprecated");
+  doc.push("\t */");
+
+  return `${item.deprecated || cleanDescription ? doc.join("\r\n") + "\r\n" : ""}\t${
+    item.name
+  },`;
 };

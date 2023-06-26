@@ -1,8 +1,8 @@
 {
     "configurations": [
         {
-            "command": "pnpm run dev",
-            "name": "Run dev",
+            "command": "pnpm run generate",
+            "name": "Debug Generate",
             "request": "launch",
             "type": "node-terminal"
         }
