@@ -1,5 +1,5 @@
 {
-  "name": "@iquirino/google-wallet",
+  "name": "google-wallet",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
