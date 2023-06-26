@@ -28,7 +28,6 @@
     "skipLibCheck": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist", "src/generator"],
   "ts-node": {
     "transpileOnly": true,
     "files": true,
