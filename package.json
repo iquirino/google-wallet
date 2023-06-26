@@ -1,0 +1,26 @@
+{
+  "name": "@iquirino/google-wallet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "ts-node --esm src/scripts/generate.ts",
+    "build": "tsc && rm -rf dist/generator && rm -rf dist/scripts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
+    "cheerio": "1.0.0-rc.12",
+    "got": "^13.0.0",
+    "google-auth-library": "^8.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}

@@ -1,0 +1,15 @@
+export enum FlightStatusEnum {
+	FLIGHT_STATUS_UNSPECIFIED,
+	SCHEDULED,
+	scheduled,
+	ACTIVE,
+	active,
+	LANDED,
+	landed,
+	CANCELLED,
+	cancelled,
+	REDIRECTED,
+	redirected,
+	DIVERTED,
+	diverted,
+}
