@@ -1,6 +1,7 @@
 import fs from "fs";
 import { ScrapOptions, scrap } from "../generator/index.js";
 import got from "got";
+import { generateExports } from "../generator/generateExports.js";
 
 const baseUrl = "https://developers.google.com";
 
@@ -129,5 +130,8 @@ const baseUrl = "https://developers.google.com";
   });
 
   await Promise.all(scrapPromises);
+
+  generateExports();
+  
   console.log("Done");
 })();
