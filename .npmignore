@@ -1,0 +1,5 @@
+.vscode
+.github
+src
+tsconfig.json
+.gitignore

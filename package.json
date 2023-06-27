@@ -2,8 +2,12 @@
   "name": "google-wallet",
   "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "exports": "./index.js",
+  "main": "./dist/index.js",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "ts-node --esm src/scripts/generate.ts",
