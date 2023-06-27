@@ -1,6 +1,6 @@
 {
   "name": "google-wallet",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "exports": "./index.js",
   "main": "./dist/index.js",
