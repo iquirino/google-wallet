@@ -2,16 +2,19 @@
   "name": "google-wallet",
   "version": "1.0.3",
   "description": "",
-  "exports": "./index.js",
-  "main": "./dist/index.js",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
   "type": "module",
+  "files": [
+    "lib/"
+  ],
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "generate": "ts-node --esm src/scripts/generate.ts",
-    "build": "tsc && rm -rf dist/generator && rm -rf dist/scripts"
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json && rm -rf lib/esm/generator && rm -rf lib/esm/scripts && rm -rf lib/cjs/generator && rm -rf lib/cjs/scripts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "",

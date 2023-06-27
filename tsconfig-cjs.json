@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "outDir": "lib/esm",
+    "outDir": "lib/cjs",
     "isolatedModules": true,
-    "module": "ES2022",
+    "module": "CommonJS",
     "moduleResolution": "NodeNext",
     "moduleDetection": "force",
     "target": "ES2022", // Node.js 18
@@ -28,7 +28,7 @@
     "skipLibCheck": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "lib"],
+  "exclude": ["node_modules", "dist"],
   "ts-node": {
     "transpileOnly": true,
     "files": true,
