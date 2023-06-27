@@ -4,14 +4,14 @@ import { Pagination } from "./types/retail/gift-cards/Pagination.js";
 import { GiftCardObject } from "./types/retail/gift-cards/GiftCardObject.js";
 import { AddMessageRequest } from "./types/retail/gift-cards/AddMessageRequest.js";
 
-export class GiftCardsService {
-  private baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
+export class GiftCardsClient {
+  private readonly httpClient: GoogleAuth;
+  private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
-  private classUrl = `${this.baseUrl}/giftCardClass`;
-  private objectUrl = `${this.baseUrl}/giftCardObject`;
+  private readonly classUrl = `${this.baseUrl}/giftCardClass`;
+  private readonly objectUrl = `${this.baseUrl}/giftCardObject`;
 
   constructor(
-    private readonly httpClient: GoogleAuth,
     credentials: GoogleAuthOptions["credentials"]
   ) {
     this.httpClient = new GoogleAuth({

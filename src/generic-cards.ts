@@ -3,14 +3,14 @@ import { GenericClass } from "./types/generic/generic-cards/GenericClass.js";
 import { Pagination } from "./types/generic/generic-cards/Pagination.js";
 import { GenericObject } from "./types/generic/generic-cards/GenericObject.js";
 
-export class GenericCardsService {
-  private baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
+export class GenericCardsClient {
+  private readonly httpClient: GoogleAuth;
+  private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
-  private classUrl = `${this.baseUrl}/genericClass`;
-  private objectUrl = `${this.baseUrl}/genericObject`;
+  private readonly classUrl = `${this.baseUrl}/genericClass`;
+  private readonly objectUrl = `${this.baseUrl}/genericObject`;
 
   constructor(
-    private readonly httpClient: GoogleAuth,
     credentials: GoogleAuthOptions["credentials"]
   ) {
     this.httpClient = new GoogleAuth({

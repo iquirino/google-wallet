@@ -4,14 +4,14 @@ import { Pagination } from "./types/retail/loyalty-cards/Pagination.js";
 import { LoyaltyObject } from "./types/retail/loyalty-cards/LoyaltyObject.js";
 import { AddMessageRequest } from "./types/retail/loyalty-cards/AddMessageRequest.js";
 
-export class LoyaltyCardsService {
-  private baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
+export class LoyaltyCardsClient {
+  private readonly httpClient: GoogleAuth;
+  private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
-  private classUrl = `${this.baseUrl}/loyaltyClass`;
-  private objectUrl = `${this.baseUrl}/loyaltyObject`;
+  private readonly classUrl = `${this.baseUrl}/loyaltyClass`;
+  private readonly objectUrl = `${this.baseUrl}/loyaltyObject`;
 
   constructor(
-    private readonly httpClient: GoogleAuth,
     credentials: GoogleAuthOptions["credentials"]
   ) {
     this.httpClient = new GoogleAuth({
