@@ -3,17 +3,16 @@ import { OfferClass } from "./types/retail/offer/OfferClass.js";
 import { Pagination } from "./types/retail/offer/Pagination.js";
 import { OfferObject } from "./types/retail/offer/OfferObject.js";
 import { AddMessageRequest } from "./types/retail/offer/AddMessageRequest.js";
-
+export * from "./types/retail/offer/index.js";
 export class OfferClient {
   private readonly httpClient: GoogleAuth;
-  private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
+  private readonly baseUrl =
+    "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
   private readonly classUrl = `${this.baseUrl}/offerClass`;
   private readonly objectUrl = `${this.baseUrl}/offerObject`;
 
-  constructor(
-    credentials: GoogleAuthOptions["credentials"]
-  ) {
+  constructor(credentials: GoogleAuthOptions["credentials"]) {
     this.httpClient = new GoogleAuth({
       credentials,
       scopes: "https://www.googleapis.com/auth/wallet_object.issuer",

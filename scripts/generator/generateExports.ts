@@ -1,7 +1,7 @@
 import fs from "fs";
 export const generateExports = () => {
-  generateFile("./src/types");
-  generateForFolder("./src/types", generateIndexFile);
+  //generateFile("./src/types");
+  //generateForFolder("./src/types", generateIndexFile);
 
   generateFile("./src/types/generic");
 

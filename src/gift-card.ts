@@ -3,7 +3,7 @@ import { GiftCardClass } from "./types/retail/gift-card/GiftCardClass.js";
 import { Pagination } from "./types/retail/gift-card/Pagination.js";
 import { GiftCardObject } from "./types/retail/gift-card/GiftCardObject.js";
 import { AddMessageRequest } from "./types/retail/gift-card/AddMessageRequest.js";
-
+export * from "./types/retail/gift-card/index.js";
 export class GiftCardClient {
   private readonly httpClient: GoogleAuth;
   private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";

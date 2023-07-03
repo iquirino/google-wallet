@@ -1,9 +1,9 @@
 import fs from "fs";
-import got from "got";
 import { generateObject } from "./typescriptGenerator.js";
 import { getTypesFromPage } from "./menuTypesScrapper.js";
 import { scrapClass, ClassDefinition } from "./typeScrapper.js";
 import { getTypesMenu } from "./menuScrapper.js";
+const { default: got } = await import("got");
 
 export type ScrapOptions = {
   type: string;
@@ -47,28 +47,32 @@ export const scrap = async (toScrap: ScrapOptions) => {
     return [...acc, item.menu.text];
   }, [] as string[]);
 
-  const pojos = await Promise.all(toScrap.pojos.map(async (pojo) => {
-    return [
-      await scrapClass(pojo.name, pojo.data),
-      ...(await Promise.all(
-        pojo.objects.map(async (type) => {
-          return await scrapClass(type, pojo.data);
-        })
-      )),
-    ];
-  }));
+  const pojos = await Promise.all(
+    toScrap.pojos.map(async (pojo) => {
+      return [
+        await scrapClass(pojo.name, pojo.data),
+        ...(await Promise.all(
+          pojo.objects.map(async (type) => {
+            return await scrapClass(type, pojo.data);
+          })
+        )),
+      ];
+    })
+  );
 
-  const additionalTypes = await Promise.all(toScrap.additionalTypes.map(async (type) => {
-    return await scrapClass(
-      `${toScrap.docsUrl}${type}`,
-      await got(`${baseUrl}${toScrap.docsUrl}${type}`).text(),
-      type
-    );
-  }));
+  const additionalTypes = await Promise.all(
+    toScrap.additionalTypes.map(async (type) => {
+      return await scrapClass(
+        `${toScrap.docsUrl}${type}`,
+        await got(`${baseUrl}${toScrap.docsUrl}${type}`).text(),
+        type
+      );
+    })
+  );
 
   const classs = [
-    ...(pojos.flat()),
-    ...(additionalTypes.flat()),
+    ...pojos.flat(),
+    ...additionalTypes.flat(),
     ...(await Promise.all(
       genTypes.map(async (type) => {
         const typeParsed = type.split("##");

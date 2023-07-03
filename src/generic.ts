@@ -1,20 +1,17 @@
 import { GoogleAuth, GoogleAuthOptions } from "google-auth-library";
 import { GenericClass } from "./types/generic/GenericClass.js";
-import { Pagination } from "./types/generic/Pagination.js";
 import { GenericObject } from "./types/generic/GenericObject.js";
-
+import { Pagination } from "./types/generic/Pagination.js";
 export * from "./types/generic/index.js";
-
 export class GenericClient {
   private readonly httpClient: GoogleAuth;
-  private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
+  private readonly baseUrl =
+    "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
   private readonly classUrl = `${this.baseUrl}/genericClass`;
   private readonly objectUrl = `${this.baseUrl}/genericObject`;
 
-  constructor(
-    credentials: GoogleAuthOptions["credentials"]
-  ) {
+  constructor(credentials: GoogleAuthOptions["credentials"]) {
     this.httpClient = new GoogleAuth({
       credentials,
       scopes: "https://www.googleapis.com/auth/wallet_object.issuer",

@@ -3,8 +3,8 @@ import { LoyaltyClass } from "./types/retail/loyalty-card/LoyaltyClass.js";
 import { Pagination } from "./types/retail/loyalty-card/Pagination.js";
 import { LoyaltyObject } from "./types/retail/loyalty-card/LoyaltyObject.js";
 import { AddMessageRequest } from "./types/retail/loyalty-card/AddMessageRequest.js";
-
-export class LoyaltyCardClient {
+export * from "./types/retail/loyalty-card/index.js";
+export class LoyaltyClient {
   private readonly httpClient: GoogleAuth;
   private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";

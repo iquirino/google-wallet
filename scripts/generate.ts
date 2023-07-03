@@ -1,7 +1,7 @@
 import fs from "fs";
-import { ScrapOptions, scrap } from "../generator/index.js";
-import got from "got";
-import { generateExports } from "../generator/generateExports.js";
+import { ScrapOptions, scrap } from "./generator/index.js";
+import { generateExports } from "./generator/generateExports.js";
+const { default: got } = await import("got");
 
 const baseUrl = "https://developers.google.com";
 
@@ -23,12 +23,16 @@ const baseUrl = "https://developers.google.com";
             "LoyaltyClass.ViewUnlockRequirement",
             "LoyaltyClass.SharedDataType",
           ],
-          data: await got(`${baseUrl}/wallet/retail/loyalty-cards/rest/v1/loyaltyclass`).text(),
+          data: await got(
+            `${baseUrl}/wallet/retail/loyalty-cards/rest/v1/loyaltyclass`
+          ).text(),
         },
         {
           name: "LoyaltyObject",
           objects: ["LoyaltyPoints", "LoyaltyPointsBalance"],
-          data: await got(`${baseUrl}/wallet/retail/loyalty-cards/rest/v1/loyaltyobject`).text(),
+          data: await got(
+            `${baseUrl}/wallet/retail/loyalty-cards/rest/v1/loyaltyobject`
+          ).text(),
         },
       ],
       additionalTypes: ["ViewUnlockRequirement"],
@@ -40,12 +44,16 @@ const baseUrl = "https://developers.google.com";
         {
           name: "GiftCardClass",
           objects: [],
-          data: await got(`${baseUrl}/wallet/retail/gift-cards/rest/v1/giftcardclass`).text(),
+          data: await got(
+            `${baseUrl}/wallet/retail/gift-cards/rest/v1/giftcardclass`
+          ).text(),
         },
         {
           name: "GiftCardObject",
           objects: [],
-          data: await got(`${baseUrl}/wallet/retail/gift-cards/rest/v1/giftcardobject`).text(),
+          data: await got(
+            `${baseUrl}/wallet/retail/gift-cards/rest/v1/giftcardobject`
+          ).text(),
         },
       ],
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
@@ -57,12 +65,16 @@ const baseUrl = "https://developers.google.com";
         {
           name: "OfferClass",
           objects: ["OfferClass.RedemptionChannel"],
-          data: await got(`${baseUrl}/wallet/retail/offers/rest/v1/offerclass`).text(),
+          data: await got(
+            `${baseUrl}/wallet/retail/offers/rest/v1/offerclass`
+          ).text(),
         },
         {
           name: "OfferObject",
           objects: [],
-          data: await got(`${baseUrl}/wallet/retail/offers/rest/v1/offerobject`).text(),
+          data: await got(
+            `${baseUrl}/wallet/retail/offers/rest/v1/offerobject`
+          ).text(),
         },
       ],
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
@@ -73,13 +85,30 @@ const baseUrl = "https://developers.google.com";
       pojos: [
         {
           name: "FlightClass",
-          objects: ["FlightClass.FlightHeader", "FlightClass.FlightCarrier", "FlightClass.AirportInfo", "FlightClass.FlightStatus", "FlightClass.BoardingAndSeatingPolicy", "FlightClass.BoardingPolicy", "FlightClass.SeatClassPolicy"],
-          data: await got(`${baseUrl}/wallet/tickets/boarding-passes/rest/v1/flightclass`).text(),
+          objects: [
+            "FlightClass.FlightHeader",
+            "FlightClass.FlightCarrier",
+            "FlightClass.AirportInfo",
+            "FlightClass.FlightStatus",
+            "FlightClass.BoardingAndSeatingPolicy",
+            "FlightClass.BoardingPolicy",
+            "FlightClass.SeatClassPolicy",
+          ],
+          data: await got(
+            `${baseUrl}/wallet/tickets/boarding-passes/rest/v1/flightclass`
+          ).text(),
         },
         {
           name: "FlightObject",
-          objects: ["BoardingAndSeatingInfo", "BoardingDoor", "ReservationInfo", "FrequentFlyerInfo"],
-          data: await got(`${baseUrl}/wallet/tickets/boarding-passes/rest/v1/flightobject`).text(),
+          objects: [
+            "BoardingAndSeatingInfo",
+            "BoardingDoor",
+            "ReservationInfo",
+            "FrequentFlyerInfo",
+          ],
+          data: await got(
+            `${baseUrl}/wallet/tickets/boarding-passes/rest/v1/flightobject`
+          ).text(),
         },
       ],
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
@@ -90,13 +119,26 @@ const baseUrl = "https://developers.google.com";
       pojos: [
         {
           name: "EventTicketClass",
-          objects: ["EventTicketClass.EventVenue", "EventTicketClass.EventDateTime", "EventTicketClass.DoorsOpenLabel", "EventTicketClass.ConfirmationCodeLabel", "EventTicketClass.SeatLabel", "EventTicketClass.RowLabel", "EventTicketClass.SectionLabel", "EventTicketClass.GateLabel"],
-          data: await got(`${baseUrl}/wallet/tickets/events/rest/v1/eventticketclass`).text(),
+          objects: [
+            "EventTicketClass.EventVenue",
+            "EventTicketClass.EventDateTime",
+            "EventTicketClass.DoorsOpenLabel",
+            "EventTicketClass.ConfirmationCodeLabel",
+            "EventTicketClass.SeatLabel",
+            "EventTicketClass.RowLabel",
+            "EventTicketClass.SectionLabel",
+            "EventTicketClass.GateLabel",
+          ],
+          data: await got(
+            `${baseUrl}/wallet/tickets/events/rest/v1/eventticketclass`
+          ).text(),
         },
         {
           name: "EventTicketObject",
           objects: ["EventSeat", "EventReservationInfo"],
-          data: await got(`${baseUrl}/wallet/tickets/events/rest/v1/eventticketobject`).text(),
+          data: await got(
+            `${baseUrl}/wallet/tickets/events/rest/v1/eventticketobject`
+          ).text(),
         },
       ],
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
@@ -108,18 +150,31 @@ const baseUrl = "https://developers.google.com";
         {
           name: "GenericClass",
           objects: [],
-          data: await got(`${baseUrl}/wallet/generic/rest/v1/genericclass`).text(),
+          data: await got(
+            `${baseUrl}/wallet/generic/rest/v1/genericclass`
+          ).text(),
         },
         {
           name: "GenericObject",
-          objects: ["GenericType", "Notifications", "ExpiryNotification", "UpcomingNotification"],
-          data: await got(`${baseUrl}/wallet/generic/rest/v1/genericobject`).text(),
+          objects: [
+            "GenericType",
+            "Notifications",
+            "ExpiryNotification",
+            "UpcomingNotification",
+          ],
+          data: await got(
+            `${baseUrl}/wallet/generic/rest/v1/genericobject`
+          ).text(),
         },
         {
           name: "Issuer",
-          objects: ["IssuerContactInfo", "SmartTapMerchantData", "AuthenticationKey", ],
+          objects: [
+            "IssuerContactInfo",
+            "SmartTapMerchantData",
+            "AuthenticationKey",
+          ],
           data: await got(`${baseUrl}/wallet/generic/rest/v1/issuer`).text(),
-        }
+        },
       ],
       additionalTypes: ["TimeInterval"],
     },

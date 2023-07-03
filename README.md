@@ -20,31 +20,53 @@ npm install google-wallet
 ## Usage
 ### Importing the Library
 
-```typescript
-// Loyalty Card
-import { LoyaltyCardClient } from "google-wallet";
-import { LoyaltyClass, LoyaltyObject } from "google-wallet/lib/cjs/types/retail/loyalty-card";
+* Loyalty Card
+  ```typescript
+  import {
+    LoyaltyClient,
+    LoyaltyClass,
+    LoyaltyObject
+  } from "google-wallet/loyalty";
+  ```
 
-//Generic Card
-import { GenericClient } from "google-wallet";
-import { GenericClass, GenericObject } from "google-wallet/lib/cjs/types/generic";
+* Generic Card
+  ```typescript
+  import {
+    GenericClient,
+    GenericClass,
+    GenericObject
+  } from "google-wallet/generic";
+  ```
 
-// Gift Card
-import { GiftCardClient } from "google-wallet";
-import { GiftCardClass, GiftCardObject } from "google-wallet/lib/cjs/types/retail/gift-card";
+* Gift Card
+  ```typescript
+  import {
+    GiftCardClient,
+    GiftCardClass,
+    GiftCardObject
+  } from "google-wallet/gift-card";
+  ```
 
-// Offer
-import { OfferClient } from "google-wallet";
-import { OfferClass, OfferObject } from "google-wallet/lib/cjs/types/retail/offer";
+* Offer
+  ```typescript
+  import {
+    OfferClient,
+    OfferClass,
+    OfferObject
+  } from "google-wallet/offer";
+  ```
 
-// Boarding Passes
-import { ... } from "google-wallet/lib/cjs/types/tickets/boarding-pass";
+* Boarding Passes
+  ```typescript
+  import { ... } from "google-wallet/boarding-pass";
+  ```
 
-// Events
-import { ... } from "google-wallet/lib/cjs/types/tickets/event";
-```
+* Events
+  ```typescript
+  import { ... } from "google-wallet/event";
+  ```
 
-* The library includes typings for Boarding Passes and Events, enabling you to work with these Google Wallet features. However, it currently does not provide a built-in client implementation for interacting with the Google REST API endpoints. If you require functionality specific to these features, you are encouraged to implement the client yourself or refer to any available documentation on their usage. Contributions regarding the client implementation or relevant documentation are highly appreciated and can benefit the community.
+* ##### This library includes typings for Boarding Passes and Events, enabling you to work with these Google Wallet features. However, it currently does not provide a built-in client implementation for interacting with the Google REST API endpoints. If you require functionality specific to these features, you are encouraged to implement the client yourself or refer to any available documentation on their usage. Contributions regarding the client implementation or relevant documentation are highly appreciated and can benefit the community.
 
 ## Configuration
 Before using the library, you need to configure your Google application credentials. Make sure you have a valid Google Cloud project and the required credentials in JSON format.
@@ -55,7 +77,7 @@ const GOOGLE_APPLICATION_CREDENTIALS = JSON.parse(
 );
 ```
 
-## Creating Loyalty Cards
+## Example: Creating Loyalty Cards
 To create or manage loyalty cards using the library, you can follow this example:
 
 ```typescript
