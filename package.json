@@ -1,11 +1,10 @@
 {
   "name": "google-wallet",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "type": "module",
-  "types": "./lib/esm/types.d/index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/esm/index.js",
@@ -44,7 +43,7 @@
   },
   "scripts": {
     "generate": "ts-node --esm scripts/generate.ts",
-    "build": "rm -rf lib && tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "build": "make",
     "prepublishOnly": "npm run build"
   },
   "keywords": [],
