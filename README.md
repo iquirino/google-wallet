@@ -44,7 +44,7 @@ import { ... } from "google-wallet/lib/cjs/types/tickets/boarding-pass";
 import { ... } from "google-wallet/lib/cjs/types/tickets/event";
 ```
 
-* Boarding Passes and Events typings have been provided without client because I've didn't found any documentation about it's implementation, feel free to implement or share his documentation.
+* The library includes typings for Boarding Passes and Events, enabling you to work with these Google Wallet features. However, it currently does not provide a built-in client implementation for interacting with the Google REST API endpoints. If you require functionality specific to these features, you are encouraged to implement the client yourself or refer to any available documentation on their usage. Contributions regarding the client implementation or relevant documentation are highly appreciated and can benefit the community.
 
 ## Configuration
 Before using the library, you need to configure your Google application credentials. Make sure you have a valid Google Cloud project and the required credentials in JSON format.
