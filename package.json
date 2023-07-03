@@ -1,6 +1,6 @@
 {
   "name": "google-wallet",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
