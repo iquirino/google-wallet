@@ -23,15 +23,15 @@ npm install google-wallet
 ```typescript
 // Loyalty Card
 import { LoyaltyCardClient } from "google-wallet";
-import { LoyaltyClass, LoyaltyObject } from "google-wallet/lib/cjs/types/retail/loyalty-cards";
+import { LoyaltyClass, LoyaltyObject } from "google-wallet/lib/cjs/types/retail/loyalty-card";
 
 //Generic Card
 import { GenericClient } from "google-wallet";
-import { GenericClass, GenericObject } from "google-wallet/lib/cjs/types/generic/generic";
+import { GenericClass, GenericObject } from "google-wallet/lib/cjs/types/generic";
 
 // Gift Card
 import { GiftCardClient } from "google-wallet";
-import { GiftCardClass, GiftCardObject } from "google-wallet/lib/cjs/types/retail/gift-cards";
+import { GiftCardClass, GiftCardObject } from "google-wallet/lib/cjs/types/retail/gift-card";
 
 // Offer
 import { OfferClient } from "google-wallet";
