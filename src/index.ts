@@ -1,5 +1,5 @@
 export * from "./types/index.js";
-export * from "./generic-cards.js";
-export * from "./gift-cards.js";
-export * from "./loyalty-cards.js";
-export * from "./offers.js";
+export { GenericClient } from "./generic.js";
+export { GiftCardClient } from "./gift.js";
+export { LoyaltyCardClient } from "./loyalty.js";
+export { OfferClient } from "./offer.js";

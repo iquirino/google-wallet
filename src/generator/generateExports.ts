@@ -3,14 +3,14 @@ export const generateExports = () => {
   generateFile("./src/types");
   generateForFolder("./src/types", generateIndexFile);
 
-  generateFile("./src/types/generic/generic-cards");
+  generateFile("./src/types/generic");
 
-  generateFile("./src/types/retail/gift-cards");
-  generateFile("./src/types/retail/loyalty-cards");
-  generateFile("./src/types/retail/offers");
+  generateFile("./src/types/retail/gift-card");
+  generateFile("./src/types/retail/loyalty-card");
+  generateFile("./src/types/retail/offer");
 
-  generateFile("./src/types/tickets/boarding-passes");
-  generateFile("./src/types/tickets/events");
+  generateFile("./src/types/tickets/boarding-pass");
+  generateFile("./src/types/tickets/event");
 };
 
 const generateForFolder = (

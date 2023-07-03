@@ -1,2 +1,2 @@
-export * as BoardingPasses from "./boarding-passes/index.js"
-export * as Events from "./events/index.js"
+export * as BoardingPass from "./boarding-pass/index.js"
+export * as Event from "./event/index.js"

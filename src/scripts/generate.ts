@@ -11,7 +11,7 @@ const baseUrl = "https://developers.google.com";
 
   const toScrap: ScrapOptions[] = [
     {
-      type: "retail/loyalty-cards",
+      type: "retail/loyalty-card",
       docsUrl: `/wallet/retail/loyalty-cards/rest/v1/`,
       pojos: [
         {
@@ -34,7 +34,7 @@ const baseUrl = "https://developers.google.com";
       additionalTypes: ["ViewUnlockRequirement"],
     },
     {
-      type: "retail/gift-cards",
+      type: "retail/gift-card",
       docsUrl: `/wallet/retail/gift-cards/rest/v1/`,
       pojos: [
         {
@@ -51,7 +51,7 @@ const baseUrl = "https://developers.google.com";
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
     },
     {
-      type: "retail/offers",
+      type: "retail/offer",
       docsUrl: `/wallet/retail/offers/rest/v1/`,
       pojos: [
         {
@@ -68,7 +68,7 @@ const baseUrl = "https://developers.google.com";
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
     },
     {
-      type: "tickets/boarding-passes",
+      type: "tickets/boarding-pass",
       docsUrl: `/wallet/tickets/boarding-passes/rest/v1/`,
       pojos: [
         {
@@ -85,7 +85,7 @@ const baseUrl = "https://developers.google.com";
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
     },
     {
-      type: "tickets/events",
+      type: "tickets/event",
       docsUrl: `/wallet/tickets/events/rest/v1/`,
       pojos: [
         {
@@ -102,7 +102,7 @@ const baseUrl = "https://developers.google.com";
       additionalTypes: ["ViewUnlockRequirement", "GroupingInfo"],
     },
     {
-      type: "generic/generic-cards",
+      type: "generic",
       docsUrl: `/wallet/generic/rest/v1/`,
       pojos: [
         {
@@ -132,6 +132,6 @@ const baseUrl = "https://developers.google.com";
   await Promise.all(scrapPromises);
 
   generateExports();
-  
+
   console.log("Done");
 })();

@@ -1,15 +1,15 @@
 import { GoogleAuth, GoogleAuthOptions } from "google-auth-library";
-import { LoyaltyClass } from "./types/retail/loyalty-cards/LoyaltyClass.js";
-import { Pagination } from "./types/retail/loyalty-cards/Pagination.js";
-import { LoyaltyObject } from "./types/retail/loyalty-cards/LoyaltyObject.js";
-import { AddMessageRequest } from "./types/retail/loyalty-cards/AddMessageRequest.js";
+import { OfferClass } from "./types/retail/offer/OfferClass.js";
+import { Pagination } from "./types/retail/offer/Pagination.js";
+import { OfferObject } from "./types/retail/offer/OfferObject.js";
+import { AddMessageRequest } from "./types/retail/offer/AddMessageRequest.js";
 
-export class LoyaltyCardsClient {
+export class OfferClient {
   private readonly httpClient: GoogleAuth;
   private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
-  private readonly classUrl = `${this.baseUrl}/loyaltyClass`;
-  private readonly objectUrl = `${this.baseUrl}/loyaltyObject`;
+  private readonly classUrl = `${this.baseUrl}/offerClass`;
+  private readonly objectUrl = `${this.baseUrl}/offerObject`;
 
   constructor(
     credentials: GoogleAuthOptions["credentials"]
@@ -26,7 +26,7 @@ export class LoyaltyCardsClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.classUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: LoyaltyClass[];
+      resources: OfferClass[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -35,7 +35,7 @@ export class LoyaltyCardsClient {
   async getClass(issuerId: string, classId: string) {
     try {
       const url = `${this.classUrl}/${issuerId}.${classId}`;
-      const res = await this.httpClient.request<LoyaltyClass>({ url });
+      const res = await this.httpClient.request<OfferClass>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -46,9 +46,9 @@ export class LoyaltyCardsClient {
     }
   }
 
-  async createClass(classObject: LoyaltyClass) {
+  async createClass(classObject: OfferClass) {
     const url = this.classUrl;
-    const res = await this.httpClient.request<LoyaltyClass>({
+    const res = await this.httpClient.request<OfferClass>({
       url,
       method: "POST",
       data: classObject,
@@ -56,9 +56,9 @@ export class LoyaltyCardsClient {
     return res.data;
   }
 
-  async updateClass(classObject: LoyaltyClass) {
+  async updateClass(classObject: OfferClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<LoyaltyClass>({
+    const res = await this.httpClient.request<OfferClass>({
       url,
       method: "PUT",
       data: classObject,
@@ -66,9 +66,9 @@ export class LoyaltyCardsClient {
     return res.data;
   }
 
-  async patchClass(classObject: LoyaltyClass) {
+  async patchClass(classObject: OfferClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<LoyaltyClass>({
+    const res = await this.httpClient.request<OfferClass>({
       url,
       method: "PATCH",
       data: classObject,
@@ -82,7 +82,7 @@ export class LoyaltyCardsClient {
     message: AddMessageRequest
   ) {
     const url = `${this.classUrl}/${issuerId}.${classId}/addMessage`;
-    const res = await this.httpClient.request<{ resource: LoyaltyClass }>({
+    const res = await this.httpClient.request<{ resource: OfferClass }>({
       url,
       method: "POST",
       data: message,
@@ -101,7 +101,7 @@ export class LoyaltyCardsClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.objectUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: LoyaltyObject[];
+      resources: OfferObject[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -110,7 +110,7 @@ export class LoyaltyCardsClient {
   async getObject(issuerId: string, objectId: string) {
     try {
       const url = `${this.objectUrl}/${issuerId}.${objectId}`;
-      const res = await this.httpClient.request<LoyaltyObject>({ url });
+      const res = await this.httpClient.request<OfferObject>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -121,9 +121,9 @@ export class LoyaltyCardsClient {
     }
   }
 
-  async createObject(object: LoyaltyObject) {
+  async createObject(object: OfferObject) {
     const url = this.objectUrl;
-    const res = await this.httpClient.request<LoyaltyObject>({
+    const res = await this.httpClient.request<OfferObject>({
       url,
       method: "POST",
       data: object,
@@ -131,9 +131,9 @@ export class LoyaltyCardsClient {
     return res.data;
   }
 
-  async updateObject(object: LoyaltyObject) {
+  async updateObject(object: OfferObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<LoyaltyObject>({
+    const res = await this.httpClient.request<OfferObject>({
       url,
       method: "PUT",
       data: object,
@@ -141,9 +141,9 @@ export class LoyaltyCardsClient {
     return res.data;
   }
 
-  async patchObject(object: LoyaltyObject) {
+  async patchObject(object: OfferObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<LoyaltyObject>({
+    const res = await this.httpClient.request<OfferObject>({
       url,
       method: "PATCH",
       data: object,
@@ -157,7 +157,7 @@ export class LoyaltyCardsClient {
     message: AddMessageRequest
   ) {
     const url = `${this.objectUrl}/${issuerId}.${objectId}/addMessage`;
-    const res = await this.httpClient.request<{ resource: LoyaltyObject }>({
+    const res = await this.httpClient.request<{ resource: OfferObject }>({
       url,
       method: "POST",
       data: message,

@@ -1,15 +1,15 @@
 import { GoogleAuth, GoogleAuthOptions } from "google-auth-library";
-import { GiftCardClass } from "./types/retail/gift-cards/GiftCardClass.js";
-import { Pagination } from "./types/retail/gift-cards/Pagination.js";
-import { GiftCardObject } from "./types/retail/gift-cards/GiftCardObject.js";
-import { AddMessageRequest } from "./types/retail/gift-cards/AddMessageRequest.js";
+import { LoyaltyClass } from "./types/retail/loyalty-card/LoyaltyClass.js";
+import { Pagination } from "./types/retail/loyalty-card/Pagination.js";
+import { LoyaltyObject } from "./types/retail/loyalty-card/LoyaltyObject.js";
+import { AddMessageRequest } from "./types/retail/loyalty-card/AddMessageRequest.js";
 
-export class GiftCardsClient {
+export class LoyaltyCardClient {
   private readonly httpClient: GoogleAuth;
   private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
-  private readonly classUrl = `${this.baseUrl}/giftCardClass`;
-  private readonly objectUrl = `${this.baseUrl}/giftCardObject`;
+  private readonly classUrl = `${this.baseUrl}/loyaltyClass`;
+  private readonly objectUrl = `${this.baseUrl}/loyaltyObject`;
 
   constructor(
     credentials: GoogleAuthOptions["credentials"]
@@ -26,7 +26,7 @@ export class GiftCardsClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.classUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: GiftCardClass[];
+      resources: LoyaltyClass[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -35,7 +35,7 @@ export class GiftCardsClient {
   async getClass(issuerId: string, classId: string) {
     try {
       const url = `${this.classUrl}/${issuerId}.${classId}`;
-      const res = await this.httpClient.request<GiftCardClass>({ url });
+      const res = await this.httpClient.request<LoyaltyClass>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -46,9 +46,9 @@ export class GiftCardsClient {
     }
   }
 
-  async createClass(classObject: GiftCardClass) {
+  async createClass(classObject: LoyaltyClass) {
     const url = this.classUrl;
-    const res = await this.httpClient.request<GiftCardClass>({
+    const res = await this.httpClient.request<LoyaltyClass>({
       url,
       method: "POST",
       data: classObject,
@@ -56,9 +56,9 @@ export class GiftCardsClient {
     return res.data;
   }
 
-  async updateClass(classObject: GiftCardClass) {
+  async updateClass(classObject: LoyaltyClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<GiftCardClass>({
+    const res = await this.httpClient.request<LoyaltyClass>({
       url,
       method: "PUT",
       data: classObject,
@@ -66,9 +66,9 @@ export class GiftCardsClient {
     return res.data;
   }
 
-  async patchClass(classObject: GiftCardClass) {
+  async patchClass(classObject: LoyaltyClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<GiftCardClass>({
+    const res = await this.httpClient.request<LoyaltyClass>({
       url,
       method: "PATCH",
       data: classObject,
@@ -82,7 +82,7 @@ export class GiftCardsClient {
     message: AddMessageRequest
   ) {
     const url = `${this.classUrl}/${issuerId}.${classId}/addMessage`;
-    const res = await this.httpClient.request<{ resource: GiftCardClass }>({
+    const res = await this.httpClient.request<{ resource: LoyaltyClass }>({
       url,
       method: "POST",
       data: message,
@@ -101,7 +101,7 @@ export class GiftCardsClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.objectUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: GiftCardObject[];
+      resources: LoyaltyObject[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -110,7 +110,7 @@ export class GiftCardsClient {
   async getObject(issuerId: string, objectId: string) {
     try {
       const url = `${this.objectUrl}/${issuerId}.${objectId}`;
-      const res = await this.httpClient.request<GiftCardObject>({ url });
+      const res = await this.httpClient.request<LoyaltyObject>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -121,9 +121,9 @@ export class GiftCardsClient {
     }
   }
 
-  async createObject(object: GiftCardObject) {
+  async createObject(object: LoyaltyObject) {
     const url = this.objectUrl;
-    const res = await this.httpClient.request<GiftCardObject>({
+    const res = await this.httpClient.request<LoyaltyObject>({
       url,
       method: "POST",
       data: object,
@@ -131,9 +131,9 @@ export class GiftCardsClient {
     return res.data;
   }
 
-  async updateObject(object: GiftCardObject) {
+  async updateObject(object: LoyaltyObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<GiftCardObject>({
+    const res = await this.httpClient.request<LoyaltyObject>({
       url,
       method: "PUT",
       data: object,
@@ -141,9 +141,9 @@ export class GiftCardsClient {
     return res.data;
   }
 
-  async patchObject(object: GiftCardObject) {
+  async patchObject(object: LoyaltyObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<GiftCardObject>({
+    const res = await this.httpClient.request<LoyaltyObject>({
       url,
       method: "PATCH",
       data: object,
@@ -157,7 +157,7 @@ export class GiftCardsClient {
     message: AddMessageRequest
   ) {
     const url = `${this.objectUrl}/${issuerId}.${objectId}/addMessage`;
-    const res = await this.httpClient.request<{ resource: GiftCardObject }>({
+    const res = await this.httpClient.request<{ resource: LoyaltyObject }>({
       url,
       method: "POST",
       data: message,

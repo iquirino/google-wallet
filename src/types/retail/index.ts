@@ -1,3 +1,3 @@
-export * as GiftCards from "./gift-cards/index.js"
-export * as LoyaltyCards from "./loyalty-cards/index.js"
-export * as Offers from "./offers/index.js"
+export * as GiftCard from "./gift-card/index.js"
+export * as LoyaltyCard from "./loyalty-card/index.js"
+export * as Offer from "./offer/index.js"

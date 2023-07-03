@@ -1,15 +1,16 @@
 import { GoogleAuth, GoogleAuthOptions } from "google-auth-library";
-import { OfferClass } from "./types/retail/offers/OfferClass.js";
-import { Pagination } from "./types/retail/offers/Pagination.js";
-import { OfferObject } from "./types/retail/offers/OfferObject.js";
-import { AddMessageRequest } from "./types/retail/offers/AddMessageRequest.js";
+import { GenericClass } from "./types/generic/GenericClass.js";
+import { Pagination } from "./types/generic/Pagination.js";
+import { GenericObject } from "./types/generic/GenericObject.js";
 
-export class OffersClient {
+export * from "./types/generic/index.js";
+
+export class GenericClient {
   private readonly httpClient: GoogleAuth;
   private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
-  private readonly classUrl = `${this.baseUrl}/offerClass`;
-  private readonly objectUrl = `${this.baseUrl}/offerObject`;
+  private readonly classUrl = `${this.baseUrl}/genericClass`;
+  private readonly objectUrl = `${this.baseUrl}/genericObject`;
 
   constructor(
     credentials: GoogleAuthOptions["credentials"]
@@ -26,7 +27,7 @@ export class OffersClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.classUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: OfferClass[];
+      resources: GenericClass[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -35,7 +36,7 @@ export class OffersClient {
   async getClass(issuerId: string, classId: string) {
     try {
       const url = `${this.classUrl}/${issuerId}.${classId}`;
-      const res = await this.httpClient.request<OfferClass>({ url });
+      const res = await this.httpClient.request<GenericClass>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -46,9 +47,9 @@ export class OffersClient {
     }
   }
 
-  async createClass(classObject: OfferClass) {
+  async createClass(classObject: GenericClass) {
     const url = this.classUrl;
-    const res = await this.httpClient.request<OfferClass>({
+    const res = await this.httpClient.request<GenericClass>({
       url,
       method: "POST",
       data: classObject,
@@ -56,9 +57,9 @@ export class OffersClient {
     return res.data;
   }
 
-  async updateClass(classObject: OfferClass) {
+  async updateClass(classObject: GenericClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<OfferClass>({
+    const res = await this.httpClient.request<GenericClass>({
       url,
       method: "PUT",
       data: classObject,
@@ -66,26 +67,12 @@ export class OffersClient {
     return res.data;
   }
 
-  async patchClass(classObject: OfferClass) {
+  async patchClass(classObject: GenericClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<OfferClass>({
+    const res = await this.httpClient.request<GenericClass>({
       url,
       method: "PATCH",
       data: classObject,
-    });
-    return res.data;
-  }
-
-  async addClassMessage(
-    issuerId: string,
-    classId: string,
-    message: AddMessageRequest
-  ) {
-    const url = `${this.classUrl}/${issuerId}.${classId}/addMessage`;
-    const res = await this.httpClient.request<{ resource: OfferClass }>({
-      url,
-      method: "POST",
-      data: message,
     });
     return res.data;
   }
@@ -101,7 +88,7 @@ export class OffersClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.objectUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: OfferObject[];
+      resources: GenericObject[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -110,7 +97,7 @@ export class OffersClient {
   async getObject(issuerId: string, objectId: string) {
     try {
       const url = `${this.objectUrl}/${issuerId}.${objectId}`;
-      const res = await this.httpClient.request<OfferObject>({ url });
+      const res = await this.httpClient.request<GenericObject>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -121,9 +108,9 @@ export class OffersClient {
     }
   }
 
-  async createObject(object: OfferObject) {
+  async createObject(object: GenericObject) {
     const url = this.objectUrl;
-    const res = await this.httpClient.request<OfferObject>({
+    const res = await this.httpClient.request<GenericObject>({
       url,
       method: "POST",
       data: object,
@@ -131,9 +118,9 @@ export class OffersClient {
     return res.data;
   }
 
-  async updateObject(object: OfferObject) {
+  async updateObject(object: GenericObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<OfferObject>({
+    const res = await this.httpClient.request<GenericObject>({
       url,
       method: "PUT",
       data: object,
@@ -141,26 +128,12 @@ export class OffersClient {
     return res.data;
   }
 
-  async patchObject(object: OfferObject) {
+  async patchObject(object: GenericObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<OfferObject>({
+    const res = await this.httpClient.request<GenericObject>({
       url,
       method: "PATCH",
       data: object,
-    });
-    return res.data;
-  }
-
-  async addObjectMessage(
-    issuerId: string,
-    objectId: string,
-    message: AddMessageRequest
-  ) {
-    const url = `${this.objectUrl}/${issuerId}.${objectId}/addMessage`;
-    const res = await this.httpClient.request<{ resource: OfferObject }>({
-      url,
-      method: "POST",
-      data: message,
     });
     return res.data;
   }

@@ -1,14 +1,15 @@
 import { GoogleAuth, GoogleAuthOptions } from "google-auth-library";
-import { GenericClass } from "./types/generic/generic-cards/GenericClass.js";
-import { Pagination } from "./types/generic/generic-cards/Pagination.js";
-import { GenericObject } from "./types/generic/generic-cards/GenericObject.js";
+import { GiftCardClass } from "./types/retail/gift-card/GiftCardClass.js";
+import { Pagination } from "./types/retail/gift-card/Pagination.js";
+import { GiftCardObject } from "./types/retail/gift-card/GiftCardObject.js";
+import { AddMessageRequest } from "./types/retail/gift-card/AddMessageRequest.js";
 
-export class GenericCardsClient {
+export class GiftCardClient {
   private readonly httpClient: GoogleAuth;
   private readonly baseUrl = "https://walletobjects.googleapis.com/walletobjects/v1";
   //private batchUrl = "https://walletobjects.googleapis.com/batch";
-  private readonly classUrl = `${this.baseUrl}/genericClass`;
-  private readonly objectUrl = `${this.baseUrl}/genericObject`;
+  private readonly classUrl = `${this.baseUrl}/giftCardClass`;
+  private readonly objectUrl = `${this.baseUrl}/giftCardObject`;
 
   constructor(
     credentials: GoogleAuthOptions["credentials"]
@@ -25,7 +26,7 @@ export class GenericCardsClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.classUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: GenericClass[];
+      resources: GiftCardClass[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -34,7 +35,7 @@ export class GenericCardsClient {
   async getClass(issuerId: string, classId: string) {
     try {
       const url = `${this.classUrl}/${issuerId}.${classId}`;
-      const res = await this.httpClient.request<GenericClass>({ url });
+      const res = await this.httpClient.request<GiftCardClass>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -45,9 +46,9 @@ export class GenericCardsClient {
     }
   }
 
-  async createClass(classObject: GenericClass) {
+  async createClass(classObject: GiftCardClass) {
     const url = this.classUrl;
-    const res = await this.httpClient.request<GenericClass>({
+    const res = await this.httpClient.request<GiftCardClass>({
       url,
       method: "POST",
       data: classObject,
@@ -55,9 +56,9 @@ export class GenericCardsClient {
     return res.data;
   }
 
-  async updateClass(classObject: GenericClass) {
+  async updateClass(classObject: GiftCardClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<GenericClass>({
+    const res = await this.httpClient.request<GiftCardClass>({
       url,
       method: "PUT",
       data: classObject,
@@ -65,12 +66,26 @@ export class GenericCardsClient {
     return res.data;
   }
 
-  async patchClass(classObject: GenericClass) {
+  async patchClass(classObject: GiftCardClass) {
     const url = `${this.classUrl}/${classObject.id}`;
-    const res = await this.httpClient.request<GenericClass>({
+    const res = await this.httpClient.request<GiftCardClass>({
       url,
       method: "PATCH",
       data: classObject,
+    });
+    return res.data;
+  }
+
+  async addClassMessage(
+    issuerId: string,
+    classId: string,
+    message: AddMessageRequest
+  ) {
+    const url = `${this.classUrl}/${issuerId}.${classId}/addMessage`;
+    const res = await this.httpClient.request<{ resource: GiftCardClass }>({
+      url,
+      method: "POST",
+      data: message,
     });
     return res.data;
   }
@@ -86,7 +101,7 @@ export class GenericCardsClient {
     if (maxResults) qs.append("maxResults", maxResults.toString());
     const url = `${this.objectUrl}?${qs.toString()}`;
     const res = await this.httpClient.request<{
-      resources: GenericObject[];
+      resources: GiftCardObject[];
       pagination: Pagination;
     }>({ url });
     return res.data;
@@ -95,7 +110,7 @@ export class GenericCardsClient {
   async getObject(issuerId: string, objectId: string) {
     try {
       const url = `${this.objectUrl}/${issuerId}.${objectId}`;
-      const res = await this.httpClient.request<GenericObject>({ url });
+      const res = await this.httpClient.request<GiftCardObject>({ url });
       return res.data;
     } catch (err) {
       if (typeof err === "object") {
@@ -106,9 +121,9 @@ export class GenericCardsClient {
     }
   }
 
-  async createObject(object: GenericObject) {
+  async createObject(object: GiftCardObject) {
     const url = this.objectUrl;
-    const res = await this.httpClient.request<GenericObject>({
+    const res = await this.httpClient.request<GiftCardObject>({
       url,
       method: "POST",
       data: object,
@@ -116,9 +131,9 @@ export class GenericCardsClient {
     return res.data;
   }
 
-  async updateObject(object: GenericObject) {
+  async updateObject(object: GiftCardObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<GenericObject>({
+    const res = await this.httpClient.request<GiftCardObject>({
       url,
       method: "PUT",
       data: object,
@@ -126,12 +141,26 @@ export class GenericCardsClient {
     return res.data;
   }
 
-  async patchObject(object: GenericObject) {
+  async patchObject(object: GiftCardObject) {
     const url = `${this.objectUrl}/${object.id}`;
-    const res = await this.httpClient.request<GenericObject>({
+    const res = await this.httpClient.request<GiftCardObject>({
       url,
       method: "PATCH",
       data: object,
+    });
+    return res.data;
+  }
+
+  async addObjectMessage(
+    issuerId: string,
+    objectId: string,
+    message: AddMessageRequest
+  ) {
+    const url = `${this.objectUrl}/${issuerId}.${objectId}/addMessage`;
+    const res = await this.httpClient.request<{ resource: GiftCardObject }>({
+      url,
+      method: "POST",
+      data: message,
     });
     return res.data;
   }
