@@ -1,29 +1,29 @@
 {
   "name": "google-wallet",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
-  "types": "./lib/types/index.d.ts",
+  "types": "./lib/esm/index.d.ts",
   "type": "module",
   "engines": {
     "node": ">=18.0.0"
   },
   "exports": {
     ".": {
-      "types": "./lib/types/index.d.ts",
+      "types": "./lib/esm/index.d.ts",
       "import": "./lib/esm/index.js",
       "require": "./lib/cjs/index.js",
       "default": "./lib/esm/index.js"
     },
     "./lib/esm/*": {
-      "types": "./lib/types/*.d.ts",
+      "types": "./lib/esm/*.d.ts",
       "import": "./lib/esm/*.js",
       "require": "./lib/cjs/*.js",
       "default": "./lib/esm/*.js"
     },
     "./lib/cjs/*": {
-      "types": "./lib/types/*.d.ts",
+      "types": "./lib/cjs/*.d.ts",
       "import": "./lib/esm/*.js",
       "require": "./lib/cjs/*.js",
       "default": "./lib/esm/*.js"
