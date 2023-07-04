@@ -1,7 +1,4 @@
-build: clean install build-ts
-
-install:
-	pnpm install
+build: clean build-ts
 
 build-ts:
 	npx tsc -p tsconfig.esm.json
@@ -11,6 +8,5 @@ build-ts:
 	echo "{\"type\": \"module\"}" > lib/esm/package.json
 
 clean:
-	rm -rf node_modules
 	rm -rf lib
 	rm -rf dist
