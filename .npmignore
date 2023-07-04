@@ -2,5 +2,9 @@
 .github
 src
 tsconfig.json
+tsconfig.*.json
+scripts
+Makefile
+tsup.config.ts
 .gitignore
 google-wallet-*.tgz

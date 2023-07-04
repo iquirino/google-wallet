@@ -1,62 +1,51 @@
 {
   "name": "google-wallet",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
+  "main": "./lib/cjs/index.js",
+  "module": "./lib/esm/index.js",
+  "types": "./lib/types/index.d.ts",
   "type": "module",
-  "exports": {
-    ".": {
-      "import": "./lib/esm/index.js",
-      "require": "./lib/cjs/index.js"
-    },
-    "./generic": {
-      "import": "./lib/esm/generic.js",
-      "require": "./lib/cjs/generic.js"
-    },
-    "./gift-card": {
-      "import": "./lib/esm/gift-card.js",
-      "require": "./lib/cjs/gift-card.js"
-    },
-    "./loyalty": {
-      "import": "./lib/esm/loyalty.js",
-      "require": "./lib/cjs/loyalty.js"
-    },
-    "./offer": {
-      "import": "./lib/esm/offer.js",
-      "require": "./lib/cjs/offer.js"
-    },
-    "./boarding-pass": {
-      "import": "./lib/esm/boarding-pass.js",
-      "require": "./lib/cjs/boarding-pass.js"
-    },
-    "./event": {
-      "import": "./lib/esm/event.js",
-      "require": "./lib/cjs/event.js"
-    }
-  },
-  "files": [
-    "lib/"
-  ],
   "engines": {
     "node": ">=18.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js",
+      "default": "./lib/esm/index.js"
+    },
+    "./lib/esm/*": {
+      "types": "./lib/types/*.d.ts",
+      "import": "./lib/esm/*.js",
+      "require": "./lib/cjs/*.js",
+      "default": "./lib/esm/*.js"
+    },
+    "./lib/cjs/*": {
+      "types": "./lib/types/*.d.ts",
+      "import": "./lib/esm/*.js",
+      "require": "./lib/cjs/*.js",
+      "default": "./lib/esm/*.js"
+    }
   },
   "scripts": {
     "generate": "ts-node --esm scripts/generate.ts",
     "build": "make",
+    "prepack": "make",
     "prepublishOnly": "npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "google-auth-library": "^8.8.0"
+    "google-auth-library": "^8.9.0"
   },
   "devDependencies": {
-    "typescript": "^5.1.6",
-    "ts-node": "^10.9.1",
     "@types/node": "^20.3.3",
     "cheerio": "1.0.0-rc.12",
-    "got": "^13.0.0"
+    "got": "^13.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   }
 }

@@ -26,7 +26,7 @@ npm install google-wallet
     LoyaltyClient,
     LoyaltyClass,
     LoyaltyObject
-  } from "google-wallet/loyalty";
+  } from "google-wallet/lib/esm/loyalty"; //works with esm and ecs
   ```
 
 * Generic Card
@@ -35,7 +35,7 @@ npm install google-wallet
     GenericClient,
     GenericClass,
     GenericObject
-  } from "google-wallet/generic";
+  } from "ggoogle-wallet/lib/cjs/generic";
   ```
 
 * Gift Card
@@ -44,7 +44,7 @@ npm install google-wallet
     GiftCardClient,
     GiftCardClass,
     GiftCardObject
-  } from "google-wallet/gift-card";
+  } from "google-wallet/lib/esm/gift-card";
   ```
 
 * Offer
@@ -53,17 +53,17 @@ npm install google-wallet
     OfferClient,
     OfferClass,
     OfferObject
-  } from "google-wallet/offer";
+  } from "google-wallet/lib/esm/offer";
   ```
 
 * Boarding Passes
   ```typescript
-  import { ... } from "google-wallet/boarding-pass";
+  import { ... } from "google-wallet/lib/esm/boarding-pass";
   ```
 
 * Events
   ```typescript
-  import { ... } from "google-wallet/event";
+  import { ... } from "google-wallet/lib/esm/event";
   ```
 
 * ##### This library includes typings for Boarding Passes and Events, enabling you to work with these Google Wallet features. However, it currently does not provide a built-in client implementation for interacting with the Google REST API endpoints. If you require functionality specific to these features, you are encouraged to implement the client yourself or refer to any available documentation on their usage. Contributions regarding the client implementation or relevant documentation are highly appreciated and can benefit the community.
@@ -81,7 +81,7 @@ const GOOGLE_APPLICATION_CREDENTIALS = JSON.parse(
 To create or manage loyalty cards using the library, you can follow this example:
 
 ```typescript
-const loyalty = new LoyaltyCardsClient(GOOGLE_APPLICATION_CREDENTIALS);
+const loyalty = new LoyaltyClient(GOOGLE_APPLICATION_CREDENTIALS);
 
 // Create a loyalty class
 const classPrefix = "fixeloyalty_class";
