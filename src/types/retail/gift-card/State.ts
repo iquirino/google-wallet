@@ -1,27 +1,27 @@
 export enum StateEnum {
-	STATE_UNSPECIFIED,
-	ACTIVE,
+	STATE_UNSPECIFIED = "STATE_UNSPECIFIED",
+	ACTIVE = "ACTIVE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	active,
-	COMPLETED,
+	active = "active",
+	COMPLETED = "COMPLETED",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	completed,
-	EXPIRED,
+	completed = "completed",
+	EXPIRED = "EXPIRED",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	expired,
-	INACTIVE,
+	expired = "expired",
+	INACTIVE = "INACTIVE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	inactive,
+	inactive = "inactive",
 }

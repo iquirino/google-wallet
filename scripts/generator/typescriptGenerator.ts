@@ -49,7 +49,5 @@ const generateEnum = (item: EnumItem) => {
   if (item.deprecated) doc.push("\t * @deprecated");
   doc.push("\t */");
 
-  return `${item.deprecated || cleanDescription ? doc.join("\r\n") + "\r\n" : ""}\t${
-    item.name
-  },`;
+  return `${item.deprecated || cleanDescription ? doc.join("\r\n") + "\r\n" : ""}\t${item.name} = "${item.name}",`;
 };

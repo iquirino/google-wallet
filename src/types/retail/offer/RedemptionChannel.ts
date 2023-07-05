@@ -1,27 +1,27 @@
 export enum RedemptionChannelEnum {
-	REDEMPTION_CHANNEL_UNSPECIFIED,
-	INSTORE,
+	REDEMPTION_CHANNEL_UNSPECIFIED = "REDEMPTION_CHANNEL_UNSPECIFIED",
+	INSTORE = "INSTORE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	instore,
-	ONLINE,
+	instore = "instore",
+	ONLINE = "ONLINE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	online,
-	BOTH,
+	online = "online",
+	BOTH = "BOTH",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	both,
-	TEMPORARY_PRICE_REDUCTION,
+	both = "both",
+	TEMPORARY_PRICE_REDUCTION = "TEMPORARY_PRICE_REDUCTION",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	temporaryPriceReduction,
+	temporaryPriceReduction = "temporaryPriceReduction",
 }

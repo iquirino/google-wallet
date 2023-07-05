@@ -1,90 +1,90 @@
 export enum BarcodeTypeEnum {
-	BARCODE_TYPE_UNSPECIFIED,
-	AZTEC,
+	BARCODE_TYPE_UNSPECIFIED = "BARCODE_TYPE_UNSPECIFIED",
+	AZTEC = "AZTEC",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	aztec,
-	CODE_39,
+	aztec = "aztec",
+	CODE_39 = "CODE_39",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	code39,
-	CODE_128,
+	code39 = "code39",
+	CODE_128 = "CODE_128",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	code128,
-	CODABAR,
+	code128 = "code128",
+	CODABAR = "CODABAR",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	codabar,
-	DATA_MATRIX,
+	codabar = "codabar",
+	DATA_MATRIX = "DATA_MATRIX",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	dataMatrix,
-	EAN_8,
+	dataMatrix = "dataMatrix",
+	EAN_8 = "EAN_8",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	ean8,
-	EAN_13,
+	ean8 = "ean8",
+	EAN_13 = "EAN_13",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	ean13,
+	ean13 = "ean13",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	EAN13,
-	ITF_14,
+	EAN13 = "EAN13",
+	ITF_14 = "ITF_14",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	itf14,
-	PDF_417,
+	itf14 = "itf14",
+	PDF_417 = "PDF_417",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	pdf417,
+	pdf417 = "pdf417",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	PDF417,
-	QR_CODE,
+	PDF417 = "PDF417",
+	QR_CODE = "QR_CODE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	qrCode,
+	qrCode = "qrCode",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	qrcode,
-	UPC_A,
+	qrcode = "qrcode",
+	UPC_A = "UPC_A",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	upcA,
-	TEXT_ONLY,
+	upcA = "upcA",
+	TEXT_ONLY = "TEXT_ONLY",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	textOnly,
+	textOnly = "textOnly",
 }

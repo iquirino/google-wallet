@@ -1,21 +1,21 @@
 export enum GateLabelEnum {
-	GATE_LABEL_UNSPECIFIED,
-	GATE,
+	GATE_LABEL_UNSPECIFIED = "GATE_LABEL_UNSPECIFIED",
+	GATE = "GATE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	gate,
-	DOOR,
+	gate = "gate",
+	DOOR = "DOOR",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	door,
-	ENTRANCE,
+	door = "door",
+	ENTRANCE = "ENTRANCE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	entrance,
+	entrance = "entrance",
 }

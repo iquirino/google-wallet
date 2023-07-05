@@ -1,21 +1,21 @@
 export enum MultipleDevicesAndHoldersAllowedStatusEnum {
-	STATUS_UNSPECIFIED,
-	MULTIPLE_HOLDERS,
+	STATUS_UNSPECIFIED = "STATUS_UNSPECIFIED",
+	MULTIPLE_HOLDERS = "MULTIPLE_HOLDERS",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	multipleHolders,
-	ONE_USER_ALL_DEVICES,
+	multipleHolders = "multipleHolders",
+	ONE_USER_ALL_DEVICES = "ONE_USER_ALL_DEVICES",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	oneUserAllDevices,
-	ONE_USER_ONE_DEVICE,
+	oneUserAllDevices = "oneUserAllDevices",
+	ONE_USER_ONE_DEVICE = "ONE_USER_ONE_DEVICE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	oneUserOneDevice,
+	oneUserOneDevice = "oneUserOneDevice",
 }

@@ -1,6 +1,6 @@
 {
   "name": "google-wallet",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -32,8 +32,7 @@
   "scripts": {
     "generate": "ts-node --esm scripts/generate.ts",
     "build": "make",
-    "prepack": "make",
-    "prepublishOnly": "npm run build"
+    "prepack": "make"
   },
   "keywords": [],
   "author": "",

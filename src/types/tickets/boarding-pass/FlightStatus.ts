@@ -1,39 +1,39 @@
 export enum FlightStatusEnum {
-	FLIGHT_STATUS_UNSPECIFIED,
-	SCHEDULED,
+	FLIGHT_STATUS_UNSPECIFIED = "FLIGHT_STATUS_UNSPECIFIED",
+	SCHEDULED = "SCHEDULED",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	scheduled,
-	ACTIVE,
+	scheduled = "scheduled",
+	ACTIVE = "ACTIVE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	active,
-	LANDED,
+	active = "active",
+	LANDED = "LANDED",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	landed,
-	CANCELLED,
+	landed = "landed",
+	CANCELLED = "CANCELLED",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	cancelled,
-	REDIRECTED,
+	cancelled = "cancelled",
+	REDIRECTED = "REDIRECTED",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	redirected,
-	DIVERTED,
+	redirected = "redirected",
+	DIVERTED = "DIVERTED",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	diverted,
+	diverted = "diverted",
 }

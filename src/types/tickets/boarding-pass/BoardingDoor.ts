@@ -1,15 +1,15 @@
 export enum BoardingDoorEnum {
-	BOARDING_DOOR_UNSPECIFIED,
-	FRONT,
+	BOARDING_DOOR_UNSPECIFIED = "BOARDING_DOOR_UNSPECIFIED",
+	FRONT = "FRONT",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	front,
-	BACK,
+	front = "front",
+	BACK = "BACK",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	back,
+	back = "back",
 }

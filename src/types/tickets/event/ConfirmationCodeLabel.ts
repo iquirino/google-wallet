@@ -1,27 +1,27 @@
 export enum ConfirmationCodeLabelEnum {
-	CONFIRMATION_CODE_LABEL_UNSPECIFIED,
-	CONFIRMATION_CODE,
+	CONFIRMATION_CODE_LABEL_UNSPECIFIED = "CONFIRMATION_CODE_LABEL_UNSPECIFIED",
+	CONFIRMATION_CODE = "CONFIRMATION_CODE",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	confirmationCode,
-	CONFIRMATION_NUMBER,
+	confirmationCode = "confirmationCode",
+	CONFIRMATION_NUMBER = "CONFIRMATION_NUMBER",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	confirmationNumber,
-	ORDER_NUMBER,
+	confirmationNumber = "confirmationNumber",
+	ORDER_NUMBER = "ORDER_NUMBER",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	orderNumber,
-	RESERVATION_NUMBER,
+	orderNumber = "orderNumber",
+	RESERVATION_NUMBER = "RESERVATION_NUMBER",
 	/**
 	 * This item is deprecated!
 	 * @deprecated
 	 */
-	reservationNumber,
+	reservationNumber = "reservationNumber",
 }
