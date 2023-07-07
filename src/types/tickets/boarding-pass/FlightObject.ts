@@ -96,6 +96,7 @@ export type FlightObject = {
 	disableExpirationNotification?: boolean;
 	/**
 	 * Deprecated. Use textModulesData instead.
+	 * @deprecated
 	 */
 	infoModuleData?: InfoModuleData;
 	/**

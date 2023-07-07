@@ -148,7 +148,7 @@ const processClassFields = (
                 .replaceAll("(deprecated)", "")
                 .replaceAll("[]", "")
                 .trim();
-              fieldItem.deprecated = fieldItem.deprecated || text.includes("deprecated");
+              fieldItem.deprecated = fieldItem.deprecated || text.toLowerCase().includes("deprecated");
 
               break;
             case 1: {
@@ -157,7 +157,7 @@ const processClassFields = (
               let innerType = $(tdEl).find("code > ").html();
               const description = $(tdEl).find("p").last().text();
 
-              fieldItem.deprecated = fieldItem.deprecated || text.includes("deprecated");
+              fieldItem.deprecated = fieldItem.deprecated || text.toLowerCase().includes("deprecated");
 
               if (innerType && innerType.toLowerCase().startsWith("int"))
                 type = "number";
@@ -219,13 +219,13 @@ const processClassEnums = (
               const name = $(tdEl).find("code").text();
               const text = $(tdEl).text();
               enumItem.name = name.replaceAll("(deprecated)", "").trim();
-              enumItem.deprecated = enumItem.deprecated || text.includes("deprecated");
+              enumItem.deprecated = enumItem.deprecated || text.toLowerCase().includes("deprecated");
 
               break;
             case 1: {
               const text = $(tdEl).text();
               const description = $(tdEl).find("p").last().text();
-              enumItem.deprecated = enumItem.deprecated || text.includes("deprecated");
+              enumItem.deprecated = enumItem.deprecated || text.toLowerCase().includes("deprecated");
               enumItem.description = description;
               break;
             }

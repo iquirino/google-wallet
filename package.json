@@ -41,7 +41,7 @@
     "google-auth-library": "^8.9.0"
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
+    "@types/node": "^20.4.0",
     "cheerio": "1.0.0-rc.12",
     "got": "^13.0.0",
     "ts-node": "^10.9.1",
