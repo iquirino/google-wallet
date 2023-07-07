@@ -1,11 +1,15 @@
 {
   "name": "google-wallet",
-  "version": "1.0.15",
-  "description": "",
+  "version": "1.0.16",
+  "description": "Google wallet library for Node.js",
+	"repository": "iquirino/google-wallet",
+  "keywords": ["google-wallet", "loyalty"],
+  "author": "Igor Quirino",
+  "license": "ISC",
+  "type": "module",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
-  "type": "module",
   "engines": {
     "node": ">=18.0.0"
   },
@@ -34,9 +38,6 @@
     "build": "make",
     "prepack": "make"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "google-auth-library": "^8.9.0"
   },

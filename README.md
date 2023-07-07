@@ -1,6 +1,6 @@
-# Google Wallet TypeScript Library
+# Google Wallet Library
 
-The Google Wallet TypeScript library provides a convenient way to manage Google Wallet functionality in your TypeScript or JavaScript projects. It offers a simple and intuitive interface for integrating with the Google Wallet REST API.
+The Google Wallet library provides a convenient way to manage Google Wallet functionality in your TypeScript or JavaScript projects. It offers a simple and intuitive interface for integrating with the Google Wallet REST API.
 
 ### References/Links
 [Google Wallet Tutorial](https://codelabs.developers.google.com/add-to-wallet-web#0)
