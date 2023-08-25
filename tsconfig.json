@@ -2,7 +2,7 @@
     "compilerOptions": {
       "moduleResolution": "NodeNext",
       "isolatedModules": true,
-      "module": "ES2022",
+      "module": "NodeNext",
       "moduleDetection": "force",
       "target": "ES2022", // Node.js 18
       "sourceMap": true,
