@@ -35,7 +35,7 @@ npm install google-wallet
     GenericClient,
     GenericClass,
     GenericObject
-  } from "ggoogle-wallet/lib/cjs/generic";
+  } from "google-wallet/lib/cjs/generic";
   ```
 
 * Gift Card
