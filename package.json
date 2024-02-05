@@ -47,7 +47,7 @@
   "devDependencies": {
     "@types/node": "^20.5.6",
     "cheerio": "1.0.0-rc.12",
-    "got": "^13.0.0",
+    "got": "^14.2.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
