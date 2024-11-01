@@ -6,6 +6,7 @@ export enum MessageTypeEnum {
 	 * @deprecated
 	 */
 	text = "text",
+	TEXT_AND_NOTIFY = "TEXT_AND_NOTIFY",
 	EXPIRATION_NOTIFICATION = "EXPIRATION_NOTIFICATION",
 	/**
 	 * This item is deprecated!
