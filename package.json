@@ -1,6 +1,6 @@
 {
   "name": "google-wallet",
-  "version": "1.0.18",
+  "version": "1.0.20",
   "description": "Google wallet library for Node.js",
   "repository": "iquirino/google-wallet",
   "keywords": [
